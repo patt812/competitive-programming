@@ -52,3 +52,28 @@ def bubbleSort(a: typing.List[int], descending: bool) -> None:
                 a[i], a[i-1] = a[i-1], a[i]
                 flag = True
 
+# Sort array by selection sort
+def selectionSort(a: typing.List[int]) -> None:
+    n = len(a)
+    for i in range(n):
+        minj = i
+        for j in range(i, n):
+            if a[j] < a[minj]:
+                minj = j
+        if i != minj:
+            a[i], a[minj] = a[minj], a[i]
+
+# Sort array by selection sort in descending order
+def selectionSort(a: typing.List[int], descending: bool) -> None:
+    if not descending:
+        selectionSort(a)
+        return
+
+    n = len(a)
+    for i in range(n):
+        maxj = i
+        for j in range(i, n):
+            if a[j] > a[maxj]:
+                maxj = j
+        if i != maxj:
+            a[i], a[maxj] = a[maxj], a[i]
